@@ -203,6 +203,7 @@ datatype List<datatype>::removeLast(){
     return data;
 }
 
+/*
 
 //printa a lista usando cout
 //CUIDADO AO UTILIZAR - pode não funcionar pra todo tipo de dado.
@@ -226,6 +227,8 @@ void List<datatype>::printList(){
         std::cout << aux->getData() << "]" << std::endl; 
     }
 }
+
+*/
 
 //DECISÃO DE PROJETO: isso é diferente de concatenação. A lista copiada será item por item 
 //adicionada à nova lista pelo fim e pelo começo.
@@ -270,6 +273,22 @@ bool List<datatype>::elementExists(datatype data){
 
     return exists;
 
+}
+
+
+//CUIDADO!!!!! DEVE SER PROGRAMADA COM MAIS CUIDADO LOGO MENOS
+template <typename datatype>
+datatype List<datatype>::getElementByPosition(unsigned long long int position){
+
+    Node<datatype> *aux = first;
+    unsigned long long int count = 0;
+
+    while(count != position){
+        aux = aux->getNext();
+        count++;
+    }
+
+    return aux->getData();
 }
 
 #endif
